@@ -254,7 +254,7 @@ div.tocify {
     line-height: 20px;
 }
 </style>
-<p>Last updated: 2022-03-28</p>
+<p>Last updated: 2022-09-09</p>
 <div id="general" class="section level1">
 <h1>General</h1>
 <div id="how-is-the-data-curated" class="section level3">
@@ -316,7 +316,7 @@ div.tocify {
 </div>
 <div id="what-is-the-antibody-binding-profile-and-how-is-it-calculated" class="section level3">
 <h3>What is the antibody binding profile, and how is it calculated?</h3>
-<p>The antibody binding profile indicates the contribution of NTD or RBD sites in the recognition of known antibodies that have resolved spike-antibody complex structures deposited in the Protein Data Bank (PDB) as of 3rd July 2021.</p>
+<p>The antibody binding profile indicates the contribution of NTD or RBD sites in the recognition of known antibodies that have resolved spike-antibody complex structures deposited in the Protein Data Bank (PDB) as of 4th May 2022.</p>
 <p>For a given site and a given antibody, the interaction score <span class="math inline">\(w\)</span>, which characterizes the interaction between the site and the antibody (improved based on <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007056">Bai et al, 2019</a>), was defined as: <span class="math display">\[w=\frac{1}{2}\left( \frac{n_c}{\langle {n_c} \rangle} +\frac{n_{nb}}{\langle {n_{nb}} \rangle} \right)\]</span> where <span class="math inline">\(n_c\)</span> is the number of contacts with the antibody (i.e. the number of non-hydrogen antibody atoms within 4 Å of the site); <span class="math inline">\(n_{nb}\)</span> is the number of neighboring antibody residues; <span class="math inline">\(\langle {n_c} \rangle\)</span> is the mean number of contacts <span class="math inline">\(n_c\)</span> and <span class="math inline">\(\langle {n_{nb}} \rangle\)</span> is the mean number of neighboring antibody residues <span class="math inline">\(n_{nb}\)</span> across all epitope sites. A weight of 1.0 is attributed to the average interaction across all epitope sites. Neighboring residue pairs were identified by Delaunay tetrahedralization of side-chain centers of residues (<span class="math inline">\(C_{\alpha}\)</span> is counted as a side chain atom, and pairs further than 8.5 Å were excluded).</p>
 <p>As there are multiple RBD-targeting antibodies, we sum the interaction score for the given site to all RBD-targeting antibodies.Then we normalize the summed score (min-max scaling; minimum, 0; maximum, 99 percentile of the summed score) and used it as the antibody binding profile. The same procedure was repeated for the NTD-targeting antibodies to get the antibody binding profile for all NTD sites.</p>
 <p>Quickhull (<a href="https://dl.acm.org/doi/10.1145/235815.235821">Barber et al, 1996</a>) was used for the tetrahedralization and Biopython PDB (<a href="https://academic.oup.com/bioinformatics/article/19/17/2308/205793">Hamelryck and Manderick, 2003</a>) to handle the protein structure.</p>
